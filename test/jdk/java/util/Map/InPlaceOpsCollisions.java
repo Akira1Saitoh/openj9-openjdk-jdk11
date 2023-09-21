@@ -451,6 +451,22 @@ public class InPlaceOpsCollisions extends MapWithCollisionsProviders {
                 String.format("map expected size#1 m%d != k%d", map.size(), expectedSize));
     }
 
+    @Test(dataProvider = "mapsWithObjectsAndStrings")
+    void testMergeNull2(String desc, Supplier<Map<Object, Object>> ms, Object val) {
+        try {
+            testMergeNull(desc, ms, val);
+            Thread.sleep(1000);
+            testMergeNull(desc, ms, val);
+            Thread.sleep(1000);
+            testMergeNull(desc, ms, val);
+            Thread.sleep(1000);
+            testMergeNull(desc, ms, val);
+            Thread.sleep(1000);
+            testMergeNull(desc, ms, val);
+      } catch (InterruptedException e) {
+      }
+    }
+
     /*
      * Remove half of the keys
      */
